@@ -37,9 +37,9 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
             console.log(`${COLORS.red}❌ ${test.name}${COLORS.reset}`)
           }
         }
-        if (test.test_code) {
-          console.log(`Test code:\n${test.test_code}\n`)
-        }
+        // if (test.test_code) {
+        //   console.log(`Test code:\n${test.test_code}\n`)
+        // }
       })
 
       // Update grand totals
