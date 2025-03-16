@@ -1,6 +1,7 @@
 const {COLORS} = require('./colors')
 const {AggregateResults} = require('./aggregate-results')
 const {getTestScore, getMaxScoreForTest} = require('./helpers/test-helpers')
+const {writeFile} = require('fs');
 
 exports.ConsoleResults = function ConsoleResults(runnerResults) {
   try {
@@ -49,6 +50,14 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
       // Calculate and display points for the current runner
       if (maxScore !== 0) {
         console.log(`Total points for ${runner}: ${score.toFixed(2)}/${maxScore}\n`);
+
+        writeFile('comment.md',  score.toFixed(2)/maxScore, (err) => {
+          if (err) {
+            console.error('Error writing file:', err);
+          } else {
+              console.log('Markdown file created successfully!');
+          }
+        })
       }
     })
 
