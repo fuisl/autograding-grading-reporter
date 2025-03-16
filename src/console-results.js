@@ -51,11 +51,12 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
       if (maxScore !== 0) {
         console.log(`Total points for ${runner}: ${score.toFixed(2)}/${maxScore}\n`);
 
-        writeFileSync('comment.md',  score.toFixed(2)/maxScore, (err) => {
+        console.log("Logging score to comment.md");
+        writeFileSync('comment.md', `Your score is ${score.toFixed(2)}/${maxScore}`, (err) => {
           if (err) {
             console.error('Error writing file:', err);
           } else {
-              console.log('Markdown file created successfully!');
+            console.log('Markdown file created successfully!');
           }
         })
       }
