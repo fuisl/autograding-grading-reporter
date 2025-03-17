@@ -1,4 +1,5 @@
 const core = require("@actions/core");
+const fs = require('fs');
 
 exports.NotifyClassroom = async function NotifyClassroom(runnerResults) {
   // combine max score and total score from each {runner, results} pair
@@ -20,6 +21,15 @@ exports.NotifyClassroom = async function NotifyClassroom(runnerResults) {
 
   const text = `Points ${totalPoints}/${maxPoints}`;
   const summary = JSON.stringify({ totalPoints, maxPoints })
+
+  console.log("Logging score to comment.md");
+
+  try {
+    fs.writeFileSync('comment.md', `Your score is ${totalPoints.toFixed(2)}/${maxPoints}`);
+    console.log("Markdown file created successfully!");
+  } catch (err) {
+    console.error("Error writing file:", err);
+  }
 
   // create notice annotations with the final result and summary
   core.notice(text, {

@@ -46,12 +46,8 @@ exports.ConsoleResults = function ConsoleResults(runnerResults) {
       grandTotalPassedTests += passedTests
       grandTotalTests += totalTests
 
-      // Calculate and display points for the current runner
-      if (maxScore !== 0) {
-        console.log(`Total points for ${runner}: ${score.toFixed(2)}/${maxScore}\n`);
-      }
     })
-
+    
     console.log(`${COLORS.magenta}Test runner summary${COLORS.magenta}`)
 
     // Calculate and display grand total points
