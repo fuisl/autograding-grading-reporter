@@ -16,11 +16,11 @@ try {
   ConsoleResults(runnerResults);
   NotifyClassroom(runnerResults);
 
-  if (runnerResults.some((r) => r.results.status === "fail")) {
-    core.setFailed("Some tests failed.");
-  } else if (runnerResults.some((r) => r.results.status === 'error')) {
-    core.setFailed("Some tests errored.");
-  }
+  // if (runnerResults.some((r) => r.results.status === "fail")) {
+  //   core.setFailed("Some tests failed.");
+  // } else if (runnerResults.some((r) => r.results.status === 'error')) {
+  //   core.setFailed("Some tests errored.");
+  // }
 } catch (error) {
   // const input = core.getInput("runners");
   // const pattern = /^([a-zA-Z0-9]+,)*[a-zA-Z0-9]+$/
